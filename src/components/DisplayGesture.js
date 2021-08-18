@@ -16,7 +16,7 @@ export const DisplayGesture = ({ detectedGesture }) => {
 
   const images = {
     thumbs_up: gs.thumbs_up,
-    thumbs_down: gs.Thumbs_down,
+    thumbs_down: gs.thumbs_down,
     victory: gs.victory,
     left: gs.left,
     right: gs.right,
@@ -32,7 +32,7 @@ export const DisplayGesture = ({ detectedGesture }) => {
     <div>
       {emoji !== null ? (
         <div>
-          <img alt="Emoji representation of detected hand gesture" src={images[emoji]} style={styles} />
+          <img alt="" src={images[emoji]} style={styles} />
         </div>
       ) : (
         ''

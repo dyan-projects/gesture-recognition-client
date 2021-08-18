@@ -1,0 +1,213 @@
+body {
+  align-content: center;
+  align-items: center;
+  background-color: rgb(231, 238, 244);
+  /* background-image: linear-gradient(
+        to right bottom,
+        rgba(134, 190, 243, 0.1),
+        rgba(97, 123, 145, 0.9)
+      ),
+      url(./assets/img/background2.png); */
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-end;
+}
+
+.tama-logo {
+  background-color: rgba(167, 167, 167, 0.2);
+  background-image: url('../img/logo-tama-blue.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.visual-feedback {
+  /* background-color: saddlebrown; */
+  padding: 30px;
+  background-image: url('../img/thumbs_up.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  /* position: fixed;
+    bottom: 480px;
+    right: 30px; */
+}
+
+.current-ad {
+  /* background-color: seagreen; */
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+.previous {
+  /* background-color: tomato; */
+  padding: 10px;
+  background-image: url('../img/previous.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  /* position: fixed;
+    bottom: 300px;
+    right: 300px; */
+}
+
+.advert {
+  /* background-color: slateblue; */
+  padding: 125px;
+  background-image: url('../img/movies/dangerouslies.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  box-shadow: 0 7px 7px rgba(13, 38, 59, 1);
+}
+
+.next {
+  /* background-color: tomato; */
+  padding: 10px;
+  background-image: url('../img/next.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  /* position: fixed;
+    bottom: 300px;
+    right: 10px; */
+}
+
+.thumbnails {
+  /* background-color: turquoise; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-end;
+}
+
+.thumbnail {
+  /* background-color: slateblue; */
+  padding: 45px;
+  margin: 4px;
+  background-image: url('../img/movies/inception.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 6px;
+  /* border: solid 2px rgba(115, 162, 204, 0.5); */
+  /* box-shadow: rgba(115, 162, 204, 0.5); */
+  /* padding: 10px; */
+  box-shadow: 0 5px 5px rgba(13, 38, 59, 1);
+}
+
+.ratings {
+  background-color: rgb(191, 210, 225);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  margin-top: 8px;
+  padding: 7px;
+}
+
+.rate {
+  /* background-color: rgb(55, 55, 146); */
+  margin-left: 8px;
+}
+
+.like-emoji {
+  /* background-color: saddlebrown; */
+  padding: 20px;
+  background-image: url('../img/like-button.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  /* position: fixed;
+    bottom: 480px;
+    right: 30px; */
+}
+
+.dislike-emoji {
+  /* background-color: saddlebrown; */
+  padding: 20px;
+  background-image: url('../img/dislike-button.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  /* position: fixed;
+    bottom: 480px;
+    right: 30px; */
+}
+
+.likes-count,
+.dislikes-count {
+  /* background-color: brown; */
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+.exit {
+  /* background-color: turquoise; */
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: flex-end;
+  margin-top: 4px;
+}
+
+.exit-gesture {
+  /* background-color: chocolate; */
+  background-image: url('../img/exit.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: 4px;
+}
+
+.exit-text {
+  margin-right: 5px;
+  font-size: 18px;
+  /* margin-top: 4px; */
+}

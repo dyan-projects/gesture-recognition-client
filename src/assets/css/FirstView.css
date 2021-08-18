@@ -1,0 +1,153 @@
+body {
+  align-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  /* background-image: linear-gradient(
+        to right bottom,
+        rgba(134, 190, 243, 0.1),
+        rgba(97, 123, 145, 0.9)
+      ),
+      url(./assets/img/background2.png); */
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  justify-content: center;
+}
+
+.main-container {
+  background: rgb(231, 238, 244);
+  color: #c3c4eb;
+  border-radius: 5px;
+  height: 600px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.top {
+  background-color: rgba(68, 106, 139, 1);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.tama-title {
+  font-size: xx-large;
+  padding: 10px;
+}
+
+.tama-logo {
+  background-color: rgba(167, 167, 167, 0.2);
+  background-image: url('../img/logo-tama-blue.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 20px;
+  width: 20px;
+  height: auto;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.sub-container {
+  /* background-color: aqua; */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.wave-container {
+  /* background-color: brown; */
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+}
+
+.wave-gesture {
+  /* background-color: saddlebrown; */
+  padding: 28px;
+  background-image: url('../img/open_palm.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  border: solid 2px rgba(255, 239, 0.6);
+  animation: mymove 2s infinite;
+}
+
+@keyframes mymove {
+  50% {
+    transform: rotate(-25deg);
+  }
+}
+
+.wave-text {
+  color: #03043d;
+  font-weight: 500;
+  font-size: xx-large;
+}
+.list-gestures {
+  /* background-color: blueviolet; */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+}
+.gesture-container {
+  /* background-color: coral; */
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-between;
+}
+.gesture-emoji {
+  background-color: rgba(167, 167, 167, 0.9);
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(68, 106, 139, 0.4);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+}
+.gesture-description {
+  background-color: rgba(68, 106, 139, 0.8);
+  color: white;
+  font-size: 30x;
+  font-weight: 500;
+  width: 140px;
+  height: 35px;
+  border-radius: 3px;
+  border: solid 2px rgba(68, 106, 139, 0.4);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+}

@@ -1,15 +1,13 @@
-import React, { useRef, useState, useEffect } from 'react';
-import Webcam from 'react-webcam';
-
-import * as gs from './assets/hand-gestures-icons';
+import React from 'react';
 import { SocketProvider } from './contexts/SocketProvider';
 import { v4 as uuidV4 } from 'uuid';
 import useLocalStorage from './hooks/useLocalStorage';
 import { GestureProvider } from './contexts/GestureProvider';
 import { GestureRecognition } from './components/GestureRecognition';
-import { DisplayGesture } from './components/DisplayGesture';
+import { FirstView } from './components/FirstView';
+import { AdsView } from './components/AdsView';
 
-// import "./App.css";
+import './App.css';
 
 function App() {
   const [id, setId] = useLocalStorage('id');
@@ -19,11 +17,15 @@ function App() {
   }
 
   return (
-    <SocketProvider id={id}>
-      <GestureProvider>
-        <GestureRecognition />
-      </GestureProvider>
-    </SocketProvider>
+    <div>
+      <SocketProvider id={id}>
+        <GestureProvider>
+          <GestureRecognition />
+          <FirstView />
+          <AdsView />
+        </GestureProvider>
+      </SocketProvider>
+    </div>
   );
 }
 

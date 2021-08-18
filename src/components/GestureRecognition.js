@@ -6,7 +6,24 @@ import { DrawGesture } from './DrawGesture';
 
 export const GestureRecognition = () => {
   const socket = useSocket();
-  const cameraRef = useRef();
+  const videoRef = useRef(null);
+
+  const getVideo = () => {
+    navigator.mediaDevices
+      .getUserMedia({ video: { width: 300 } })
+      .then(stream => {
+        let video = videoRef.current;
+        video.srcObject = stream;
+        video.play();
+      })
+      .catch(err => {
+        console.error('error:', err);
+      });
+  };
+
+  useEffect(() => {
+    // getVideo();
+  }, []);
 
   useEffect(() => {
     if (socket) {
@@ -24,6 +41,7 @@ export const GestureRecognition = () => {
   // Insert view pages inside
   return (
     <div>
+      <video ref={videoRef} />
       <DisplayGesture />
       <DrawGesture />
     </div>

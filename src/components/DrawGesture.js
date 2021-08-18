@@ -1,13 +1,15 @@
 import React, { useRef, useEffect } from 'react';
 import { drawHand } from '../utils/draw';
 
-export const DrawGesture = ({ detectedGesture }) => {
+export const DrawGesture = ({ handGesture }) => {
   const canvasRef = useRef();
 
   useEffect(() => {
     const ctx = canvasRef.current.getContext('2d');
-    drawHand(detectedGesture, ctx);
-  }, [detectedGesture]);
+    if (handGesture) {
+      drawHand(handGesture, ctx);
+    }
+  }, [handGesture]);
 
   const styles = {
     position: 'absolute',
