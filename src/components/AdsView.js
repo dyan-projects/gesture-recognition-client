@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../assets/css/AdsView.css';
 
-export const AdsView = () => {
+const AdsView = () => {
   return (
     <div>
       <div className="main-container">
@@ -42,3 +42,5 @@ export const AdsView = () => {
     </div>
   );
 };
+
+export default AdsView;

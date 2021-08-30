@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useReducer, useRef } from 'react';
 
 const GestureContext = React.createContext();
 
@@ -8,11 +8,13 @@ export const useGesture = () => {
 
 const reducer = (state, action) => {};
 
-export const GestureProvider = ({ children }) => {
+const GestureProvider = ({ children }) => {
+  const results = useRef();
   const [detectedGesture, dispatch] = useReducer(reducer, []);
-  const gestureDetected = '';
+  console.log(detectedGesture, dispatch);
+
   const toggleDisplay = () => {};
-  return (
-    <GestureContext.Provider value={{ gestureDetected, toggleDisplay }}>{children}</GestureContext.Provider>
-  );
+  return <GestureContext.Provider value={{ results, toggleDisplay }}>{children}</GestureContext.Provider>;
 };
+
+export default GestureProvider;

@@ -47,7 +47,7 @@ body {
 
 .tama-logo {
   background-color: rgba(167, 167, 167, 0.2);
-  background-image: url('../img/logo-tama-blue.png');
+  /* background-image: url('../img/logo-tama-blue.png'); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   padding: 20px;
@@ -82,7 +82,7 @@ body {
 .wave-gesture {
   /* background-color: saddlebrown; */
   padding: 28px;
-  background-image: url('../img/open_palm.png');
+  /* background-image: url('../img/open_palm.png'); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 50%;

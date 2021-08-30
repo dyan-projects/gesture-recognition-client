@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../assets/css/FirstView.css';
 
-export const FirstView = () => {
+const HomeView = () => {
   return (
     <div className="main-container">
       <div className="top">
@@ -51,7 +51,7 @@ export const FirstView = () => {
           <div className="gesture-container">
             <div className="gesture-emoji">
               <span role="img" aria-label="victory">
-                ✌
+                ✌️
               </span>
             </div>
             <div className="gesture-description">Cancel</div>
@@ -69,3 +69,5 @@ export const FirstView = () => {
     </div>
   );
 };
+
+export default HomeView;

@@ -29,7 +29,7 @@ body {
 
 .tama-logo {
   background-color: rgba(167, 167, 167, 0.2);
-  background-image: url('../img/logo-tama-blue.png');
+  /* background-image: url('../img/logo-tama-blue.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   padding: 20px;
@@ -42,7 +42,7 @@ body {
 .visual-feedback {
   /* background-color: saddlebrown; */
   padding: 30px;
-  background-image: url('../img/thumbs_up.png');
+  /* background-image: url('../img/thumbs_up.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
@@ -67,7 +67,7 @@ body {
 .previous {
   /* background-color: tomato; */
   padding: 10px;
-  background-image: url('../img/previous.png');
+  /* background-image: url('../img/previous.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
@@ -81,7 +81,7 @@ body {
 .advert {
   /* background-color: slateblue; */
   padding: 125px;
-  background-image: url('../img/movies/dangerouslies.jpg');
+  /* background-image: url('../img/movies/dangerouslies.jpg'); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 6px;
@@ -91,7 +91,7 @@ body {
 .next {
   /* background-color: tomato; */
   padding: 10px;
-  background-image: url('../img/next.png');
+  /* background-image: url('../img/next.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
@@ -116,7 +116,7 @@ body {
   /* background-color: slateblue; */
   padding: 45px;
   margin: 4px;
-  background-image: url('../img/movies/inception.jpg');
+  /* background-image: url('../img/movies/inception.jpg'); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 6px;
@@ -146,7 +146,7 @@ body {
 .like-emoji {
   /* background-color: saddlebrown; */
   padding: 20px;
-  background-image: url('../img/like-button.png');
+  /* background-image: url('../img/like-button.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
@@ -160,7 +160,7 @@ body {
 .dislike-emoji {
   /* background-color: saddlebrown; */
   padding: 20px;
-  background-image: url('../img/dislike-button.png');
+  /* background-image: url('../img/dislike-button.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
@@ -197,7 +197,7 @@ body {
 
 .exit-gesture {
   /* background-color: chocolate; */
-  background-image: url('../img/exit.png');
+  /* background-image: url('../img/exit.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;

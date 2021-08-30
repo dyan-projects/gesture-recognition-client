@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import * as gs from '../assets/hand-gestures-icons';
+import * as gs from '../assets/visual-feedback-icons';
 
 export const DisplayGesture = ({ detectedGesture }) => {
   const [emoji, setEmoji] = useState();
