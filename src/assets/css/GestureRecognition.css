@@ -1,0 +1,10 @@
+.main {
+  position: relative;
+}
+
+.box {
+  border: 1px solid black;
+  position: absolute;
+  height: 20vh;
+  width: 20vh;
+}

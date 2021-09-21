@@ -1,0 +1,36 @@
+.main__container {
+  width: 100%;
+  color: #5c5c64;
+}
+
+.main__items {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.text__col {
+  color: #e3e5ff;
+  background-color: rgba(68, 106, 139, 1);
+  border-radius: 3px;
+}
+
+.main__emoji {
+  height: 3rem;
+}
+
+.wave__text {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.main__emojis {
+  margin-top: 2rem;
+}
+
+.main__text {
+  text-transform: uppercase;
+}

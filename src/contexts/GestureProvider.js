@@ -1,4 +1,5 @@
-import React, { useContext, useReducer, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import { useSocket } from './SocketProvider';
 
 const GestureContext = React.createContext();
 
@@ -6,15 +7,28 @@ export const useGesture = () => {
   return useContext(GestureContext);
 };
 
-const reducer = (state, action) => {};
-
 const GestureProvider = ({ children }) => {
+  const socket = useSocket();
   const results = useRef();
-  const [detectedGesture, dispatch] = useReducer(reducer, []);
-  console.log(detectedGesture, dispatch);
 
-  const toggleDisplay = () => {};
-  return <GestureContext.Provider value={{ results, toggleDisplay }}>{children}</GestureContext.Provider>;
+  useEffect(() => {
+    if (socket) {
+      socket.on('connect', () => {
+        console.info('Connected to server');
+      });
+
+      socket.on('results', input => {
+        results.current = input;
+        console.log(results.current);
+      });
+
+      socket.on('disconnect', () => {
+        console.info('Server disconnected');
+      });
+    }
+  }, [socket]);
+
+  return <GestureContext.Provider value={{ results }}>{children}</GestureContext.Provider>;
 };
 
 export default GestureProvider;

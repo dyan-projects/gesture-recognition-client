@@ -1,0 +1,59 @@
+.dashboard {
+  padding: 0px;
+  background-color: rgba(68, 106, 139, 0.87);
+  height: 10vh;
+  min-height: 10vh;
+  min-width: 100vw;
+}
+
+.dashboard__col {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard__items {
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid aliceblue; */
+}
+
+.app-logo {
+  height: 10vh;
+  width: auto;
+  display: block;
+}
+
+.app__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.title__text {
+  font-size: 2rem;
+  position: absolute;
+}
+
+.webcam-canvas {
+  position: absolute;
+}
+
+.emoji {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  padding-top: 5px;
+  height: 90vh;
+  min-height: fit-content;
+  max-height: max-content;
+  background-color: rgb(231, 238, 244);
+  /* justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch; */
+}

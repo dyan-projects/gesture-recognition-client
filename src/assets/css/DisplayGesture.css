@@ -1,0 +1,13 @@
+.main {
+  padding: auto;
+  height: 100%;
+  text-align: center;
+}
+
+.emoji {
+  height: 10vh;
+  width: 10vh;
+  margin: auto;
+  text-align: center;
+  display: block;
+}
