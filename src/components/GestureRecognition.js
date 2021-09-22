@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import { useGesture } from '../contexts/GestureProvider';
 import { useSocket } from '../contexts/SocketProvider';
@@ -24,21 +24,23 @@ const GestureRecognition = props => {
     }
   }, [predictions]);
 
-  const transmitVideo = (videoRef, socket) => {
+  const sendImage = useCallback(() => {
     if (
       typeof videoRef.current !== 'undefined' &&
       videoRef.current !== null &&
       videoRef.current.video.readyState === 4
     ) {
-      socket.emit('process-input', 'video');
+      const imageSrc = videoRef.current.getScreenshot();
+      // console.log(videoRef.current.video);
+      socket.emit('process-input', imageSrc.replace('data:image/jpeg;base64,', ''));
     }
-  };
+  }, [socket]);
 
   // useEffect(() => {
   //   if (socket) {
   //     socket.on('start-transmission', () => {
   //       const interval = setInterval(() => {
-  //         transmitVideo(videoRef, socket);
+  //         sendImage();
   //         console.log(videoRef.current.video);
   //         console.log('sec');
   //       }, 10000);
@@ -48,12 +50,12 @@ const GestureRecognition = props => {
   //       });
   //     });
   //   }
-  // }, [socket]);
+  // }, [sendImage, socket]);
 
   // Insert view pages inside
   return (
     <div className="main">
-      <Webcam ref={videoRef} className="box" style={styles} />
+      <Webcam ref={videoRef} audio={false} screenshotFormat="image/jpeg" className="box" style={styles} />
       <canvas ref={canvasRef} className="box" style={styles} />
     </div>
   );

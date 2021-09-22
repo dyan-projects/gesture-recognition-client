@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { navigate } from '@reach/router';
 import axios from 'axios';
 import { Container, Col, Row, Image, Badge } from 'react-bootstrap';
 
 import * as img from '../assets/main-views-icons/img';
 import '../assets/css/AdsView.css';
 
-const baseUrl = 'http://localhost:4000/';
+const baseUrl = process.env.REACT_APP_SERVER_URL;
 const maxAdsPerPage = 3;
 
 const formatAdName = adName => {
@@ -29,20 +30,27 @@ const getAdName = ad => {
   }
 };
 
-const AdsView = () => {
+const AdsView = ({ onDetectGesture }) => {
   const numberOfPages = useRef(0);
   const currentPage = useRef(1);
   const lastPageAds = useRef(0);
   const adLiked = useRef(false);
   const adDisliked = useRef(false);
-  const currentAd = useRef(null);
   const [currentAds, setCurrentAds] = useState(null);
   const [selectedAdIndex, setSelectedAdIndex] = useState(0);
+
+  const toHomePage = () => {
+    onDetectGesture('closed_fist');
+    setTimeout(() => {
+      navigate('/');
+      onDetectGesture('loading_icon');
+    }, 2000);
+  };
 
   const fetchCurrentAds = page => {
     axios.get(`${baseUrl}api/v1/adverts?page=${page}&max=${maxAdsPerPage}`).then(response => {
       numberOfPages.current = Math.ceil(response.data.count / maxAdsPerPage);
-      // lastPageAds.current = console.log(numberOfPages.current);
+      lastPageAds.current = response.data.count % maxAdsPerPage;
       setCurrentAds(response.data.rows);
     });
   };
@@ -57,75 +65,84 @@ const AdsView = () => {
   };
 
   const likeCurrentAd = () => {
-    if (adLiked.current) {
-      adLiked.current = false;
-      updateRatings({ like: -1, dislike: 0 });
-    } else if (adDisliked.current) {
-      adLiked.current = true;
-      adDisliked.current = false;
-      updateRatings({ like: 1, dislike: -1 });
-    } else {
-      adLiked.current = true;
-      updateRatings({ like: 1, dislike: 0 });
-    }
+    onDetectGesture('thumbs_up');
+    setTimeout(() => {
+      if (adLiked.current) {
+        adLiked.current = false;
+        updateRatings({ like: -1, dislike: 0 });
+      } else if (adDisliked.current) {
+        adLiked.current = true;
+        adDisliked.current = false;
+        updateRatings({ like: 1, dislike: -1 });
+      } else {
+        adLiked.current = true;
+        updateRatings({ like: 1, dislike: 0 });
+      }
+      onDetectGesture('loading_icon');
+    }, 1000);
   };
 
   const dislikeCurrentAd = () => {
-    if (adDisliked.current) {
-      adDisliked.current = false;
-      updateRatings({ like: 0, dislike: -1 });
-    } else if (adLiked.current) {
-      adDisliked.current = true;
-      adLiked.current = false;
-      updateRatings({ like: -1, dislike: 1 });
-    } else {
-      adDisliked.current = true;
-      updateRatings({ like: 0, dislike: 1 });
-    }
+    onDetectGesture('thumbs_down');
+    setTimeout(() => {
+      if (adDisliked.current) {
+        adDisliked.current = false;
+        updateRatings({ like: 0, dislike: -1 });
+      } else if (adLiked.current) {
+        adDisliked.current = true;
+        adLiked.current = false;
+        updateRatings({ like: -1, dislike: 1 });
+      } else {
+        adDisliked.current = true;
+        updateRatings({ like: 0, dislike: 1 });
+      }
+      onDetectGesture('loading_icon');
+    }, 1000);
   };
 
   const previousAd = () => {
-    adLiked.current = false;
-    adDisliked.current = false;
-    if (currentPage.current === 1 && selectedAdIndex > 0) {
-      setSelectedAdIndex(prevIndex => prevIndex - 1);
-    } else if (currentPage.current > 1) {
-      if (selectedAdIndex === 0) {
-        currentPage.current -= 1;
-        setSelectedAdIndex(maxAdsPerPage - 1);
-        fetchCurrentAds(currentPage.current);
-      } else if (selectedAdIndex > 0) {
+    onDetectGesture('left');
+    setTimeout(() => {
+      adLiked.current = false;
+      adDisliked.current = false;
+      if (currentPage.current === 1 && selectedAdIndex > 0) {
         setSelectedAdIndex(prevIndex => prevIndex - 1);
+      } else if (currentPage.current > 1) {
+        if (selectedAdIndex === 0) {
+          currentPage.current -= 1;
+          fetchCurrentAds(currentPage.current);
+          setSelectedAdIndex(maxAdsPerPage - 1);
+        } else if (selectedAdIndex > 0) {
+          setSelectedAdIndex(prevIndex => prevIndex - 1);
+        }
       }
-    }
+      onDetectGesture('loading_icon');
+    }, 1000);
   };
 
   const nextAd = () => {
-    adLiked.current = false;
-    adDisliked.current = false;
-    if (currentPage.current === numberOfPages.current && selectedAdIndex < lastPageAds) {
-      setSelectedAdIndex(prevIndex => prevIndex + 1);
-    } else if (currentPage.current < numberOfPages.current) {
-      if (selectedAdIndex === maxAdsPerPage - 1) {
-        currentPage.current += 1;
-        setSelectedAdIndex(0);
-        fetchCurrentAds(currentPage.current);
-      } else if (selectedAdIndex < maxAdsPerPage - 1) {
+    onDetectGesture('right');
+    setTimeout(() => {
+      adLiked.current = false;
+      adDisliked.current = false;
+      if (currentPage.current === numberOfPages.current && selectedAdIndex < lastPageAds - 1) {
         setSelectedAdIndex(prevIndex => prevIndex + 1);
+      } else if (currentPage.current < numberOfPages.current) {
+        if (selectedAdIndex === maxAdsPerPage - 1) {
+          currentPage.current += 1;
+          fetchCurrentAds(currentPage.current);
+          setSelectedAdIndex(0);
+        } else if (selectedAdIndex < maxAdsPerPage - 1) {
+          setSelectedAdIndex(prevIndex => prevIndex + 1);
+        }
       }
-    }
+      onDetectGesture('loading_icon');
+    }, 1000);
   };
 
   useEffect(() => {
     fetchCurrentAds(currentPage.current);
   }, []);
-
-  useEffect(() => {
-    if (currentAds) {
-      currentAd.current = currentAds[selectedAdIndex];
-      console.log(currentAd.current);
-    }
-  }, [selectedAdIndex, currentAds]);
 
   return (
     <Container className="main__container" fluid>
@@ -222,7 +239,7 @@ const AdsView = () => {
       <Row>
         <Col lg={10} md={10} xs={10} className="main__items"></Col>
         <Col lg={2} md={2} xs={2} className="main__items">
-          <div className="nav__img">
+          <div className="nav__img" onClick={toHomePage}>
             <div className="exit__text">Exit</div>
             <Image src={img.exit} className="exit" />
           </div>

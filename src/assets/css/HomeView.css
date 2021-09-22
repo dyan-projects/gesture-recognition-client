@@ -3,6 +3,10 @@
   color: #5c5c64;
 }
 
+.main__wave {
+  padding-top: 2rem;
+}
+
 .main__items {
   text-align: center;
   display: flex;
@@ -20,6 +24,29 @@
 
 .main__emoji {
   height: 3rem;
+}
+
+.waving-hand {
+  height: 4rem;
+  animation: rotation 1.5s infinite linear;
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(20deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+  }
+  75% {
+    -webkit-transform: rotate(-20deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
 }
 
 .wave__text {

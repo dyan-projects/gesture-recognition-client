@@ -5,7 +5,7 @@ import * as gs from '../assets/visual-feedback-icons';
 import '../assets/css/DisplayGesture.css';
 
 const DisplayGesture = ({ detectedGesture }) => {
-  const [emoji, setEmoji] = useState();
+  const [emoji, setEmoji] = useState('loading_icon');
 
   const images = {
     thumbs_up: gs.thumbs_up,
@@ -15,6 +15,7 @@ const DisplayGesture = ({ detectedGesture }) => {
     right: gs.right,
     open_palm: gs.open_palm,
     closed_fist: gs.closed_fist,
+    loading_icon: gs.loading_icon,
   };
 
   useEffect(() => {
@@ -23,7 +24,12 @@ const DisplayGesture = ({ detectedGesture }) => {
 
   return (
     <div className="main">
-      {emoji !== null ? <Image alt="Detected gesture" src={images.victory} fluid className="emoji" /> : ''}
+      <Image
+        alt="Detected gesture"
+        src={emoji ? images[emoji] : images.loading_icon}
+        fluid
+        className={`emoji ${!emoji | (emoji === 'loading_icon') ? 'loading-icon' : ''}`}
+      />
     </div>
   );
 };

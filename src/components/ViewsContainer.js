@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Router, Link } from '@reach/router';
 import { Container, Col, Row, Image } from 'react-bootstrap';
 
@@ -11,6 +11,12 @@ import { tama_logo_blue } from '../assets/main-views-icons/img';
 import '../assets/css/ViewsContainer.css';
 
 const ViewsContainer = () => {
+  const [emoji, setEmoji] = useState('');
+
+  const setGesture = emoji => {
+    setEmoji(emoji);
+  };
+
   return (
     <Container fluid>
       <Row className="dashboard">
@@ -31,7 +37,7 @@ const ViewsContainer = () => {
         </Col>
         <Col md={4} xs={3} className="dashboard__col">
           <div className="dashboard__items emoji">
-            <DisplayGesture />
+            <DisplayGesture detectedGesture={emoji} />
           </div>
         </Col>
       </Row>
@@ -39,8 +45,8 @@ const ViewsContainer = () => {
         <Col>
           <div>
             <Router>
-              <HomeView path="/" />
-              <AdsView path="/ads" />
+              <HomeView onDetectGesture={setGesture} path="/" />
+              <AdsView onDetectGesture={setGesture} path="/ads" />
             </Router>
           </div>
         </Col>
